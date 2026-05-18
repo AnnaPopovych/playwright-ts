@@ -1,9 +1,7 @@
-import { Locator, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 
 export abstract class BasePage {
   readonly page: Page;
-
-  abstract get pageLayout(): Locator;
 
   constructor(page: Page) {
     this.page = page;

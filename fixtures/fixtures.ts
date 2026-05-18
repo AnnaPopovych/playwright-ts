@@ -3,13 +3,13 @@ import { MainPage } from '../tests/pages/main-page';
 import { CatalogFirstPage } from '../tests/pages/catalog-first-page';
 import { CatalogSecondPage } from '../tests/pages/catalog-second-page';
 
-type catalogPages = {
+type catalogPagesFixtures = {
   mainPage: MainPage;
   catalogFirstPage: CatalogFirstPage;
   catalogSecondPage: CatalogSecondPage;
 };
 
-export const test = base.extend<catalogPages>({
+export const test = base.extend<catalogPagesFixtures>({
   mainPage: async ({ page }, use) => {
     await use(new MainPage(page));
   },
