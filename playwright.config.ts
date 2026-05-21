@@ -8,10 +8,27 @@ export default defineConfig({
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
   },
   projects: [
     {
-      name: 'chromium',
+      name: 'mobile-safari',
+      testMatch: /.*\.catalog\.spec\.ts/,
+      use: { ...devices['iPhone 12'] },
+    },
+    {
+      name: 'smoke-chromium',
+      testMatch: /.*\.smoke\.spec\.ts/,
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'smoke-firefox',
+      testMatch: /.*\.smoke\.spec\.ts/,
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'catalog',
+      testMatch: /.*\.catalog\.spec\.ts/,
       use: { ...devices['Desktop Chrome'] },
     },
   ],
