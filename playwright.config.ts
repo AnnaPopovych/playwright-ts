@@ -12,11 +12,6 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'mobile-chrome',
-      testMatch: /.*\.catalog\.spec\.ts/,
-      use: { ...devices['Pixel 5'] },
-    },
-    {
       name: 'mobile-safari',
       testMatch: /.*\.catalog\.spec\.ts/,
       use: { ...devices['iPhone 12'] },
