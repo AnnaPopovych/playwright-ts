@@ -11,6 +11,7 @@ export default defineConfig({
     baseURL: 'https://rozetka.com.ua/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    headless: false,
     video: {
       mode: 'on-first-retry',
       size: { width: 640, height: 480 },
