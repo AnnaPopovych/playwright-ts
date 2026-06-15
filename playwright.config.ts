@@ -6,21 +6,15 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: 2,
-  reporter: 'html',
+  reporter: [['html', { outputFolder: 'playwright-report' }]],
   use: {
     baseURL: 'https://rozetka.com.ua/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    headless: false,
     video: {
-      mode: 'on-first-retry',
+      mode: 'retain-on-failure',
       size: { width: 640, height: 480 },
-      show: {
-        actions: {
-          duration: 500,
-          position: 'top-right',
-          fontSize: 14,
-        },
-      },
     },
     actionTimeout: 10 * 1000,
     navigationTimeout: 30 * 1000,

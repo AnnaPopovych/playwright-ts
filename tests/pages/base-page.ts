@@ -8,6 +8,6 @@ export abstract class BasePage {
   }
 
   async open(url: string) {
-    await this.page.goto(url, { waitUntil: 'load' });
+    await this.page.goto(url);
   }
 }
