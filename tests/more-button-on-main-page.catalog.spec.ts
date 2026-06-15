@@ -1,11 +1,10 @@
 import { test, expect } from '../fixtures/fixtures';
-import { URLS } from './utils/catalog-urls';
 
-test('More button on main page', async ({ mainPage }) => {
-  await mainPage.open(URLS.HOME);
+test('Load more footer on the Deals page is visible', async ({ dealsPage }) => {
+  await dealsPage.goto();
+  await dealsPage.acceptCookies();
 
-  await expect(mainPage.listBestForYou).toBeVisible();
-  await mainPage.scrollUntilMoreButtonVisible();
-
-  await expect(mainPage.moreButton).toHaveText('Показати ще');
+  await expect(dealsPage.listItems.first()).toBeVisible();
+  await dealsPage.scrollUntilLoadMoreFooterVisible();
+  await expect(dealsPage.loadMoreFooter).toBeVisible();
 });

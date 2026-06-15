@@ -1,0 +1,131 @@
+{
+  "cookies": [
+    {
+      "name": "session-id",
+      "value": "525-0198463-5300122",
+      "domain": ".amazon.es",
+      "path": "/",
+      "expires": 1812882076.486605,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "session-id-time",
+      "value": "2082787201l",
+      "domain": ".amazon.es",
+      "path": "/",
+      "expires": 1812882076.487578,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "i18n-prefs",
+      "value": "EUR",
+      "domain": ".amazon.es",
+      "path": "/",
+      "expires": 1812882076.487766,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "lc-acbes",
+      "value": "en_GB",
+      "domain": ".amazon.es",
+      "path": "/",
+      "expires": 1812882076.48784,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ak_bmsc",
+      "value": "662E859A044CF676624D74A151BB203A~000000000000000000000000000000~YAAQN6Vx1Et8b3KeAQAAvAeAwACpQt9VFjF3oV8d6o+GXGKucvTcYofigdFUD5TU3lRrfVwsTYZS5bsqCbZVdJ2R1NLnbaMVGXO7OzJ8bZaAC/VY4R672N5RHY5+AXB7TivTZfCs0o+y10w9AYlQUAN8cRtnl8MpLR979QGR8CPX5k2Tq2/3PLBlhLPLMccj4V7SIVLb8cL6LxD4dkNwo7eilAboZ0HSg7Yk9GCE34X+F+802An1P6tlqSQFy5Tvcg3V2Ij1M3Jipp0EYaEaciFmvwm6/4TqnUUKwwU32TscwHW1xkATH7pvr9Q+wkP6tJridfuN6oDO0AL40tkVlLjXpxjdBO0CGxw3zw61oshOeTR0uBLrBWTx046MfTJEQK5OZ3iWN7JQxcev",
+      "domain": ".amazon.es",
+      "path": "/",
+      "expires": 1781353276.488026,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "bm_sv",
+      "value": "5F78C214E19B1777D3D1A3FEE0FF7765~YAAQaaVx1InH/IeeAQAA9g6AwABLVLCPgxaQAOKQ1dORKOfneiZRI9LaPpuOrLxQSy8lSWqMgS9wMLV158BL0DsGERNMgMeTCgU0t/8c7TIWXxUNBU6U8udmttUvfWUrQzofIuk8FKV5t3xe6pAAjeZ/ILvXd8AmjoBwtHsldqELVVUTeGSpX+l/S/HyN7bneeB682IHd5ZM6wJw/On0cjObxr1F0cuQ3qEXf5dW79WbMh7ihSVKoIuejXS3anI=~1",
+      "domain": ".amazon.es",
+      "path": "/",
+      "expires": 1781353277.336598,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "rxc",
+      "value": "AP4jtr8h9ix20TPs+NE",
+      "domain": "www.amazon.es",
+      "path": "/",
+      "expires": 1781432478.377723,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "csm-hit",
+      "value": "tb:KHBG6A2PSH3J9P0JCEYX+s-KHBG6A2PSH3J9P0JCEYX|1781346078421&t:1781346078421&adb:adblk_no",
+      "domain": "www.amazon.es",
+      "path": "/",
+      "expires": 1811586078,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.amazon.es",
+      "localStorage": [
+        {
+          "name": "csa-tabbed-browsing",
+          "value": "{\"lastActive\":{\"visible\":true,\"pid\":\"vihg5a-mtiduh-u84j0a-aqvgxo\",\"tid\":\"vihg5a-mtiduh-u84j0a-aqvgxo\",\"ent\":{\"rid\":\"KHBG6A2PSH3J9P0JCEYX\"}},\"lastInteraction\":{\"id\":\"bsxp3v-ek3qff-ataqg3-so9fh5\",\"used\":false},\"time\":1781346076730,\"initialized\":true}"
+        },
+        {
+          "name": "sp-cc-pcl",
+          "value": "eyJwcmluY2lwYWwiOiI1MjUtMDE5ODQ2My01MzAwMTIyfDAiLCJwcm9tcHRzIjpbMTc4MTM0NjA3NzU4OF19"
+        },
+        {
+          "name": "csm-bf",
+          "value": "[\"KHBG6A2PSH3J9P0JCEYX\"]"
+        },
+        {
+          "name": "a-font-class",
+          "value": "a-ember a-ember-1-0-0 a-ember-modern-display a-ember-modern-display-1-0-0 a-ember-modern-text a-ember-modern-text-1-0-0"
+        },
+        {
+          "name": "sp-cc-pending",
+          "value": "1"
+        },
+        {
+          "name": "csm:adb",
+          "value": "adblk_no"
+        },
+        {
+          "name": "csm-hit",
+          "value": "tb:KHBG6A2PSH3J9P0JCEYX+s-KHBG6A2PSH3J9P0JCEYX|1781346078421&t:1781346078421&adb:adblk_no"
+        },
+        {
+          "name": "csa-ctoken-KHBG6A2PSH3J9P0JCEYX",
+          "value": "1781349676729"
+        },
+        {
+          "name": "rx",
+          "value": "AP4jtr9E+2R6swiXJIjApqw4lgvUqzOF4m423meW+QTDuSOj5E+XIpuriemTiNUu6/l5t1c8BSdJpjVypSZ+DhW/0c9/bdXudyA8xo7N1iNiuCe+vlj4mVA8pc4yXT04cbAp6t1OXf/J8Xnri2EITL11wygfjW+z+6BaxfzjWZZQOeYOi4aHimmAcn/YPxH6cjBVrM5ZblPSer1Bml4DKwaWbDVlqvwAZ5s72ZKDbsp+xLHsgjqXZwIQyS7OKqs0apNJ6oQH3hZEEXflhxvoQaOnoe/SGZxxZ+bVqLBC+57UACWCWc37kn2DPdwpAwpvjqIiQagI0bdPg7YuFB4BWAJ2yadBLsn4RddkFgk7khqc+u0cX/qsCeQI5G1u0Z4h85eiQqa9hkkcqLPTennET9KcKR4e0laglUo"
+        },
+        {
+          "name": "rx-pnt",
+          "value": "1781346075|1"
+        }
+      ]
+    }
+  ]
+}
