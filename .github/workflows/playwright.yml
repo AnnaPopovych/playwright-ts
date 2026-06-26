@@ -6,10 +6,33 @@ on:
     branches: [main, master]
   workflow_dispatch:
     inputs:
-      branch:
-        description: 'Branch to run tests on'
-        required: true
-        default: 'main'
+      suite:
+        description: 'Select the test suite (optional if using test):'
+        required: false
+        default: ''
+        type: string
+      tag:
+        description: 'Select a test tag (optional if using tags):'
+        required: false
+        default: ''
+        type: string
+      testPath:
+        description: 'Manually provide a test file path (e.g., tests/../..):'
+        required: false
+        default: ''
+        type: string
+      runMethod:
+        description: 'Select test running approach:'
+        required: false
+        type: choice
+        options:
+          - '' # Default placeholder
+          - 'npx playwright test' # Direct Playwright run
+          - 'npm run' # Use the npm script
+      customCommand:
+        description: 'Provide a full custom command to execute (overrides other inputs)'
+        required: false
+        default: ''
 jobs:
   test:
     timeout-minutes: 60
@@ -25,8 +48,57 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      - name: Debug Inputs
+        run: |
+          echo "Test suite: ${{ github.event.inputs.suite }}"
+          echo "Test tag: ${{ github.event.inputs.tag }}"
+          echo "Test path: ${{ github.event.inputs.testPath }}"
+          echo "Selected run method: ${{ github.event.inputs.runMethod }}"
+          echo "Custom command: ${{ github.event.inputs.customCommand }}"
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          CUSTOM_COMMAND="${{ github.event.inputs.customCommand }}"
+          if [ -n "$CUSTOM_COMMAND" ]; then
+            echo "Processing custom command input."
+            # Check if the command starts with an environment variable assignment
+            if [[ "$CUSTOM_COMMAND" =~ ^[A-Za-z_][A-Za-z0-9_]*= ]]; then
+              echo "Executing custom command with environment variable assignment."
+              eval "$CUSTOM_COMMAND"
+            elif [[ "$CUSTOM_COMMAND" =~ ^npm[[:space:]]+run[[:space:]]+([A-Za-z0-9:_-]+)$ ]]; then
+              npm run "${BASH_REMATCH[1]}"
+            elif [[ "$CUSTOM_COMMAND" =~ ^npx[[:space:]]+playwright[[:space:]]+test([[:space:]].*)?$ ]]; then
+              PLAYWRIGHT_ARGS="${CUSTOM_COMMAND#npx playwright test}"
+              if [ "$PLAYWRIGHT_ARGS" = "$CUSTOM_COMMAND" ] || [ -z "$PLAYWRIGHT_ARGS" ]; then
+                npx playwright test
+              else
+                read -r -a PLAYWRIGHT_ARGS_ARRAY <<< "$PLAYWRIGHT_ARGS"
+                npx playwright test "${PLAYWRIGHT_ARGS_ARRAY[@]}"
+              fi
+            else
+              echo "Unsupported custom command. Allowed formats: 'ENV_VAR=value command', 'npm run <script>', or 'npx playwright test [args]'."
+              exit 1
+            fi
+          elif [ "${{ github.event.inputs.runMethod }}" == "npm run" ]; then
+            if [ -n "${{ github.event.inputs.suite }}" ]; then
+              npm run "${{ github.event.inputs.suite }}"
+            else
+              echo "Please provide a suite name."
+              exit 1
+            fi
+          elif [ "${{ github.event.inputs.runMethod }}" == "npx playwright test" ]; then
+            if [ -n "${{ github.event.inputs.testPath }}" ]; then
+              IFS=$'\n, ' read -r -a PATHS <<< "${{ github.event.inputs.testPath }}"
+              npx playwright test "${PATHS[@]}"
+            elif [ -n "${{ github.event.inputs.tag }}" ]; then
+              npx playwright test --grep="${{ github.event.inputs.tag }}"
+            else
+              echo "Please provide a testPath or tag."
+              exit 1
+            fi
+          else
+            echo "Invalid run method selected."
+            exit 1
+          fi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
